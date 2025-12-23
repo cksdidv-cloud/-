@@ -1,5 +1,5 @@
 
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { 
   CheckCircle, 
   TrendingUp, 
@@ -15,9 +15,7 @@ import {
   Phone,
   Building,
   Target,
-  Rocket,
-  Download,
-  Loader2
+  Rocket
 } from 'lucide-react';
 import { 
   XAxis, 
@@ -28,7 +26,6 @@ import {
   AreaChart,
   Area
 } from 'recharts';
-import html2canvas from 'html2canvas';
 
 /** 
  * 성장 데이터 사례
@@ -49,10 +46,7 @@ const Section: React.FC<{ children: React.ReactNode; className?: string; id?: st
 );
 
 const App: React.FC = () => {
-  const [formData, setFormData] = useState({ name: '', contact: '', blogUrl: '', company: '' });
   const [submitted, setSubmitted] = useState(false);
-  const [isCapturing, setIsCapturing] = useState(false);
-  const pageRef = useRef<HTMLDivElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,69 +58,8 @@ const App: React.FC = () => {
     document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  /**
-   * 상세페이지 전체를 이미지로 다운로드하는 함수
-   */
-  const handleDownloadImage = async () => {
-    if (!pageRef.current || isCapturing) return;
-
-    try {
-      setIsCapturing(true);
-      
-      // 캡처 최적화를 위해 약간의 지연 시간 부여
-      await new Promise(resolve => setTimeout(resolve, 500));
-
-      const canvas = await html2canvas(pageRef.current, {
-        useCORS: true,
-        scale: 2, // 고화질을 위해 2배율로 캡처
-        backgroundColor: '#ffffff',
-        logging: false,
-        onclone: (clonedDoc) => {
-          // 캡처용 복제본에서 다운로드 버튼 등 제외
-          const btn = clonedDoc.querySelector('.download-btn-fixed');
-          if (btn) btn.remove();
-        }
-      });
-
-      const image = canvas.toDataURL('image/png', 1.0);
-      const link = document.createElement('a');
-      link.href = image;
-      link.download = `반딧불마케팅_상세페이지_${new Date().getTime()}.png`;
-      link.click();
-    } catch (error) {
-      console.error('Image capture failed:', error);
-      alert('이미지 저장 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
-    } finally {
-      setIsCapturing(false);
-    }
-  };
-
   return (
-    <div className="bg-white relative" ref={pageRef}>
-      {/* 캡처 로딩 오버레이 */}
-      {isCapturing && (
-        <div className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex flex-col items-center justify-center text-white">
-          <Loader2 className="w-12 h-12 animate-spin mb-4 text-emerald-400" />
-          <p className="text-xl font-bold">상세페이지를 고화질 이미지로 생성 중입니다...</p>
-          <p className="opacity-70 mt-2 text-sm">페이지가 길 경우 최대 10초 정도 소요될 수 있습니다.</p>
-        </div>
-      )}
-
-      {/* 이미지 저장 고정 버튼 */}
-      <button 
-        onClick={handleDownloadImage}
-        disabled={isCapturing}
-        className="download-btn-fixed fixed bottom-8 right-8 z-[90] bg-white text-gray-900 border border-gray-200 shadow-2xl px-6 py-4 rounded-2xl font-bold flex items-center gap-3 hover:bg-emerald-50 hover:border-emerald-200 hover:scale-105 transition-all active:scale-95 disabled:opacity-50 group"
-      >
-        <div className="bg-emerald-500 text-white p-2 rounded-lg group-hover:bg-emerald-600">
-          <Download size={20} />
-        </div>
-        <div className="text-left">
-          <div className="text-xs text-gray-400 leading-none mb-1 uppercase tracking-tight">Full Page Export</div>
-          <div className="text-sm">이미지로 저장</div>
-        </div>
-      </button>
-
+    <div className="bg-white relative">
       {/* 1페이지: 후킹 & 히어로 및 1차 신청박스 */}
       <Section className="bg-gradient-to-br from-green-600 to-emerald-900 text-white relative overflow-hidden">
         <div className="z-10 text-center space-y-8">
@@ -241,13 +174,10 @@ const App: React.FC = () => {
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="flex-1 order-2 md:order-1 relative">
             <img 
-              src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1000&q=80" 
+              src="https://img.etnews.com/photonews/2304/1644570_20230425140019_801_0002.jpg"
               className="rounded-[3rem] shadow-2xl object-cover h-[500px] w-full border-8 border-gray-50" 
               alt="네이버 블로그 서로이웃 추가 시스템 시각화" 
             />
-            <div className="absolute top-6 left-6 bg-emerald-600 text-white px-6 py-2 rounded-full font-bold shadow-lg">
-              REAL INTERACTION
-            </div>
           </div>
           <div className="flex-1 order-1 md:order-2">
             <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-8">
@@ -308,14 +238,10 @@ const App: React.FC = () => {
           </div>
           <div className="flex-1 relative">
             <img 
-              src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1000&q=80" 
+              src="/images/blog.jpeg" 
               className="rounded-[3rem] shadow-2xl object-cover h-[500px] w-full border-8 border-white" 
               alt="모바일 블로그 소통 및 공감 버튼 상호작용" 
             />
-            <div className="absolute -bottom-6 -left-6 bg-pink-600 text-white p-8 rounded-3xl shadow-xl">
-              <div className="text-3xl font-black italic">TOP TIER</div>
-              <div className="text-sm opacity-80">Engagement Rate</div>
-            </div>
           </div>
         </div>
       </Section>
@@ -332,7 +258,7 @@ const App: React.FC = () => {
             <h3 className="text-2xl font-bold text-gray-400 mb-2">프리미엄 올인원 케어</h3>
             <div className="flex items-center justify-center space-x-3 mb-10">
               <span className="text-3xl text-gray-300 line-through">15만원</span>
-              <span className="text-6xl font-black text-emerald-600">월 20,000원</span>
+              <span className="text-6xl font-black text-emerald-600">월 30,000원</span>
             </div>
             <ul className="text-left space-y-5 mb-10 border-t border-gray-100 pt-10">
               {[
@@ -499,7 +425,7 @@ const App: React.FC = () => {
               </div>
 
               <button className="w-full py-6 bg-gradient-to-r from-emerald-500 to-green-400 text-white text-2xl font-black rounded-2xl hover:shadow-emerald-500/40 hover:shadow-2xl transition-all flex items-center justify-center space-x-3">
-                <span>월 2만원으로 성장 신청하기</span>
+                <span>월 3만원으로 성장 신청하기</span>
                 <ArrowRight size={28} />
               </button>
             </form>
