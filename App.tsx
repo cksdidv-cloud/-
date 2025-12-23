@@ -238,7 +238,7 @@ const App: React.FC = () => {
           </div>
           <div className="flex-1 relative">
             <img 
-              src="/images/blog.jpeg" 
+              src="/blog.jpeg" 
               className="rounded-[3rem] shadow-2xl object-cover h-[500px] w-full border-8 border-white" 
               alt="모바일 블로그 소통 및 공감 버튼 상호작용" 
             />
