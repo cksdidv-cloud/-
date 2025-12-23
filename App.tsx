@@ -289,7 +289,7 @@ const App: React.FC = () => {
               "관리 2주 만에 <br/> <span className="text-emerald-600 underline">애드포스트 수익</span>이 발생했어요"
             </h2>
             <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
-              <p>"육아 정보를 공유하는 평범한 블로거였어요. 글만 올리면 아무도 안 왔는데, 2만원 관리 서비스를 받고 나서 서이추가 폭발하고 댓글이 달리니 블로그 하는 재미가 생겼습니다. 이제는 매일 커피 한 잔 값의 애드포스트 수익이 나요!"</p>
+              <p>"육아 정보를 공유하는 평범한 블로거였어요. 글만 올리면 아무도 안 왔는데, 3만원 관리 서비스를 받고 나서 서이추가 폭발하고 댓글이 달리니 블로그 하는 재미가 생겼습니다. 이제는 매일 커피 한 잔 값의 애드포스트 수익이 나요!"</p>
               <div className="flex items-center space-x-4 border-t border-gray-100 pt-6">
                 <img src="https://picsum.photos/id/64/100/100" className="w-14 h-14 rounded-full" alt="User Avatar" />
                 <div>
@@ -323,7 +323,7 @@ const App: React.FC = () => {
               "블로그 마케팅으로 <br/> <span className="text-emerald-600 underline">매장 매출이 40%</span> 올랐습니다"
             </h2>
             <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
-              <p>"동네 식당을 운영하며 블로그를 직접 키워보려 했지만 너무 힘들었죠. 반딧불마케팅을 만난 후 지역 잠재 고객들과의 서이추 소통이 늘어나면서 예약 문의가 확연히 늘었습니다. 2만원으로 전담 마케터를 둔 기분이에요."</p>
+              <p>"동네 식당을 운영하며 블로그를 직접 키워보려 했지만 너무 힘들었죠. 반딧불마케팅을 만난 후 지역 잠재 고객들과의 서이추 소통이 늘어나면서 예약 문의가 확연히 늘었습니다. 3만원으로 전담 마케터를 둔 기분이에요."</p>
               <div className="flex items-center space-x-4 border-t border-gray-200 pt-6">
                 <img src="https://picsum.photos/id/102/100/100" className="w-14 h-14 rounded-full" alt="Owner Avatar" />
                 <div>
@@ -375,7 +375,7 @@ const App: React.FC = () => {
         <div className="z-10 relative w-full">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-black mb-6 italic tracking-tight">지금 바로 시작하세요</h2>
-            <p className="text-xl opacity-60">월 2만원, 당신의 블로그가 브랜드가 됩니다.</p>
+            <p className="text-xl opacity-60">월 3만원, 당신의 블로그가 브랜드가 됩니다.</p>
           </div>
 
           <div className="max-w-2xl mx-auto bg-white/5 backdrop-blur-2xl p-10 md:p-14 rounded-[3rem] border border-white/10 shadow-2xl">
