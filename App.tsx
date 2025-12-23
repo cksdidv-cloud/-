@@ -64,7 +64,7 @@ const App: React.FC = () => {
       <Section className="bg-gradient-to-br from-green-600 to-emerald-900 text-white relative overflow-hidden">
         <div className="z-10 text-center space-y-8">
           <div className="inline-block px-4 py-1 bg-white/20 rounded-full text-sm font-semibold mb-4 animate-bounce">
-            🔥 월 2만원, 하루 666원의 기적
+            🔥 월 3만원, 하루 1,000원의 기적
           </div>
           <h1 className="text-5xl md:text-7xl font-black leading-tight">
             아직도 손으로 <br/>
@@ -354,7 +354,7 @@ const App: React.FC = () => {
             { icon: <ShieldCheck />, title: "완벽한 안전성", desc: "네이버 로직을 거스르지 않는 자연스러운 구동" },
             { icon: <Users />, title: "진짜 유저 소통", desc: "유령 계정이 아닌 실제 활동 블로거 타겟팅" },
             { icon: <TrendingUp />, title: "실질적 지수 상승", desc: "단순 숫자가 아닌 검색 노출을 위한 최적화" },
-            { icon: <Rocket />, title: "압도적 가성비", desc: "월 2만원으로 누리는 대행사 수준의 고품질 케어" }
+            { icon: <Rocket />, title: "압도적 가성비", desc: "월 3만원으로 누리는 대행사 수준의 고품질 케어" }
           ].map((item, i) => (
             <div key={i} className="text-center p-8 border border-gray-50 rounded-[2.5rem] bg-gray-50 hover:bg-emerald-50 transition-colors group">
               <div className="w-16 h-16 bg-white text-gray-400 group-hover:bg-emerald-500 group-hover:text-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm transition-all">
